@@ -1,6 +1,6 @@
 import './App.css';
 import Customer from './components/customer' ;
-
+import {Table} from 'react-bootstrap' ;
 const customers = [
 {
   'id':1,
@@ -26,24 +26,37 @@ const customers = [
   'gender' : '여자',
   'job' : '한복대여'
 }]
+
 function App() {
   return (
     <div>
-      {
-        customers.map((a,i)=>{
-          return(
-            <Customer
-                key={a.id}
-                id={a.id}
-                image={a.image}
-                name={a.name}
-                birthday={a.birthday}
-                gender={a.gender}
-                job={a.job}
-            />)
-        })
-      }
-    </div>
+        <Table>
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>이미지</th>
+              <th>이름</th>
+              <th>생년월일</th>
+              <th>성별</th>
+              <th>직업</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              customers.map((a,i)=>{
+                return(
+                  <Customer key={a.id}
+                    id={a.id}
+                    image = {a.image}
+                    name = {a.name}
+                    birthday = {a.birthday}
+                    gender = {a.gender}
+                    job = {a.job} />
+              )})
+            }
+          </tbody>
+        </Table>
+      </div>
   );
 }
 
